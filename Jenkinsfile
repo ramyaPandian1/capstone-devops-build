@@ -24,7 +24,7 @@ pipeline {
                 script {
                     sh 'echo $DOCKER_HUB_CREDENTIALS' 
                     // Login to Docker Hub
-                    docker.withRegistry('https://index.docker.io/v1/', 'DOCKER_HUB_CREDENTIALS') {
+                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
                         if (env.BRANCH_NAME == 'dev') {
                             docker.image("react-app:${env.BRANCH_NAME}").push("${DOCKER_DEV_REPO}")
                         } else if (env.BRANCH_NAME == 'master') {
