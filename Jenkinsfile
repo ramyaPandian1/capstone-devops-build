@@ -27,7 +27,9 @@ pipeline {
                      docker.withRegistry('https://index.docker.io/v1/', 'ramyaashwin-dockerhub') {
                     //docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
                         if (env.BRANCH_NAME == 'dev') {
-                            docker.image("react-app:${env.BRANCH_NAME}").push("${DOCKER_DEV_REPO}:latest")
+                            docker.image("react-app:${env.BRANCH_NAME}").tag("${DOCKER_DEV_REPO}:latest")
+                            docker.image("${DOCKER_DEV_REPO}:latest").push()
+                            //docker.image("react-app:${env.BRANCH_NAME}").push("${DOCKER_DEV_REPO}:latest")
                         } else if (env.BRANCH_NAME == 'master') {
                             docker.image("react-app:${env.BRANCH_NAME}").push("master")
                         }
