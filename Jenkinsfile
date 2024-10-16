@@ -33,7 +33,7 @@ pipeline {
                             //docker.image("${DOCKER_DEV_REPO}:latest").push()
                             //docker.image("react-app:${env.BRANCH_NAME}").push("${DOCKER_DEV_REPO}:latest")
                         } else if (env.BRANCH_NAME == 'main') {
-                            sh 'docker tag react-app:master ramyaashwin/main:latest'
+                            sh 'docker tag react-app:main ramyaashwin/main:latest'
                             sh 'docker push ramyaashwin/main:latest'
                             //docker.image("react-app:${env.BRANCH_NAME}").push("master")
                         }
