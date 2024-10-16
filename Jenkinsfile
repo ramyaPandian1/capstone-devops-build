@@ -33,7 +33,9 @@ pipeline {
                             //docker.image("${DOCKER_DEV_REPO}:latest").push()
                             //docker.image("react-app:${env.BRANCH_NAME}").push("${DOCKER_DEV_REPO}:latest")
                         } else if (env.BRANCH_NAME == 'master') {
-                            docker.image("react-app:${env.BRANCH_NAME}").push("master")
+                            sh 'docker tag react-app:master ramyaashwin/master:latest'
+                            sh 'docker push ramyaashwin/master:latest'
+                            //docker.image("react-app:${env.BRANCH_NAME}").push("master")
                         }
                     }
                 }
@@ -44,7 +46,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                // Add deployment logic for production (for example, SSH to a server and pull image)
+                //  Add deployment logic for production (for example, SSH to a server and pull image)
                 sh './deploy.sh'
             }
         }
