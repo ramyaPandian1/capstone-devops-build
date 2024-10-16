@@ -1,7 +1,6 @@
-version:3
 services:
   react-application:
     build: .
     ports:
-      - 80:80
+      - "80:80"
     container_name: react-application
