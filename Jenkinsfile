@@ -22,6 +22,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
+                    sh 'echo $DOCKER_HUB_CREDENTIALS' 
                     // Login to Docker Hub
                     docker.withRegistry('https://index.docker.io/v1/', 'DOCKER_HUB_CREDENTIALS') {
                         if (env.BRANCH_NAME == 'dev') {
