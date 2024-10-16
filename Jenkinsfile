@@ -27,8 +27,8 @@ pipeline {
                      docker.withRegistry('https://index.docker.io/v1/', 'ramyaashwin-dockerhub') {
                     //docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
                         if (env.BRANCH_NAME == 'dev') {
-                            docker tag react-app:dev ramyaashwin/dev:latest
-                            docker push ramyaashwin/dev:latest
+                            sh 'docker tag react-app:dev ramyaashwin/dev:latest'
+                            sh 'docker push ramyaashwin/dev:latest'
                             //docker.image("react-app:${env.BRANCH_NAME}").tag("${DOCKER_DEV_REPO}:latest")
                             //docker.image("${DOCKER_DEV_REPO}:latest").push()
                             //docker.image("react-app:${env.BRANCH_NAME}").push("${DOCKER_DEV_REPO}:latest")
