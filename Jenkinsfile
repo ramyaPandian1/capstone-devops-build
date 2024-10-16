@@ -14,7 +14,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Building Docker image
+                    // Building Docker image.
                     docker.build("react-app:${env.BRANCH_NAME}")
                 }
             }
