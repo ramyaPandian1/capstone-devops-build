@@ -2,5 +2,5 @@ services:
   react-application:
     build: .
     ports:
-      - ""80:80""
+      - "80:80"
     container_name: react-application
